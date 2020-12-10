@@ -55,17 +55,34 @@ class Person
     end 
 
     def take_bath
-        @hygeine = self.hygiene + 4
+        self.hygiene += 4
         return "♪ Rub-a-dub just relaxing in the tub ♫"
     end 
 
-    def workout
+    def work_out
+        self.hygiene -= 3
+        self.happiness += 2
+        return '♪ another one bites the dust ♫'
     end 
 
-    def call_friend
+    def call_friend(friend)
+        self.happiness +=3
+        friend.happiness +=3
+        return "Hi #{friend.name}! It's #{self.name}. How are you?"
     end 
 
-    def start_conversation
+    def start_conversation(friend, topic)
+        if topic == "politics"
+            friend.happiness -= 2
+            self.happiness -= 2
+            return 'blah blah partisan blah lobbyist'
+        elsif topic == "weather" 
+            friend.happiness += 1
+            self.happiness += 1
+            return "blah blah sun blah rain"
+        else 
+            return "blah blah blah blah blah"
+        end
     end
 
 
